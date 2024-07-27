@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .table tbody td, .table tbody th {
+            vertical-align: middle;
+        }
+
+        .image-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="container-fluid p-5 mt-3">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-sh">
+
+                    <div class="card-header text-center fs-4">Add category
+                        <th:block th:if="${session.message}">
+                            <p class="text-danger fw-bold">[[${session.message}]]</p>
+                            <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                        </th:block>
+                    </div>
+                    <div class="card-body">
+                        <form action="/admin/saveCategory" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label>Enter Category</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Trạng thái</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="isActive" checked value="true"
+                                           id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Còn hàng
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="isActive" value="false"
+                                           id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Đã hết hàng
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Upload Images</label>
+                                <input type="file" class="form-control" name="file">
+                            </div>
+                            <button type="submit" class="btn btn-primary col-md-12 mt-2">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 offset-md-1">
+                <div class="card card-sh">
+                    <div class="card-header text-center fs-4">Thông Tin Loại Sản Phẩm</div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Loại</th>
+                                <th scope="col">Trang Thái</th>
+                                <th scope="col">Ảnh</th>
+                                <th scope="col">Hành Động</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="cat,c:${categorys}">
+                                <th scope="row">[[${c.count}]]</th>
+                                <td>[[${cat.name}]]</td>
+                                <td>[[${cat.isActive}]]</td>
+                                <td class="image-cell"><img th:src="@{'/images/category_img/'+${cat.imageName}}" alt="Category Image"
+                                                            style="width: 70px; height: auto;"></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i>
+                                            Edit
+                                        </button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

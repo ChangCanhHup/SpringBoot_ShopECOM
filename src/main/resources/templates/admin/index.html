@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <div class="container p-5" style=" margin-bottom: 140px">
+        <p class="text-center fs-3 mt-4">Trang chủ ADMIN</p>
+        <div class="row p-5">
+            <div class="col-md-4">
+                <a href="/admin/loadAddProduct" class="text-decoration-none">
+                    <div class="card card-sh">
+                        <div class="card-body text-center text-success">
+                            <i class="fa-regular fa-square-plus fa-3x text-success"></i>
+                            <p class="fs-4 fw-bold">Thêm sản phẩm</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="/admin/category" class="text-decoration-none">
+                    <div class="card card-sh">
+                        <div class="card-body text-center text-primary">
+                            <i class="fa-solid fa-plus fa-3x"></i>
+                            <p class="fs-4 fw-bold">Thêm Loại sản phẩm</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card card-sh">
+                        <div class="card-body text-center text-warning">
+                            <i class="fa-solid fa-list fa-3x"></i>
+                            <p class="fs-4 fw-bold">Danh Sách Sản Phẩm</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card card-sh">
+                        <div class="card-body text-center text-danger">
+                            <i class="fa-solid fa-box-open fa-3x text-danger"></i>
+                            <p class="fs-4 fw-bold">Đặt hàng</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card card-sh">
+                        <div class="card-body text-center text-info">
+                            <i class="fa-solid fa-user-group fa-3x"></i>
+                            <p class="fs-4 fw-bold">Người dùng</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 mt-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card card-sh">
+                        <div class="card-body text-center text-purple">
+                            <i class="fa-solid fa-user-plus fa-3x"></i>
+                            <p class="fs-4 fw-bold">Thêm ADMIN</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
