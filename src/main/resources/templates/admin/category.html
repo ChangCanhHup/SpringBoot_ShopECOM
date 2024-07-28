@@ -86,15 +86,18 @@
                                 <th scope="row">[[${c.count}]]</th>
                                 <td>[[${cat.name}]]</td>
                                 <td>[[${cat.isActive}]]</td>
-                                <td class="image-cell"><img th:src="@{'/images/category_img/'+${cat.imageName}}" alt="Category Image"
+                                <td class="image-cell"><img th:src="@{'/images/category_img/'+${cat.imageName}}"
+                                                            alt="Category Image"
                                                             style="width: 70px; height: auto;"></td>
                                 <td>
                                     <div class="action-buttons">
-                                        <button class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i>
+                                        <a th:href="@{'/admin/loadEditCategory/'+${cat.id}}" class="btn btn-primary btn-sm"><i
+                                                class="fa-solid fa-pen-to-square"></i>
                                             Edit
-                                        </button>
-                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete
-                                        </button>
+                                        </a>
+                                        <a th:href="@{'/admin/deleteCategory/'+${cat.id}}"
+                                           class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
